@@ -2,9 +2,9 @@
 
 ## Opening Index
 
-| Opening | ECO | Language | Grandmaster | White | Black | Tournament | Video Link |
+| Opening | ECO | Language  | White | Black | Tournament | Video Link |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Four Knights Game - Spanish Variation | C48 | Spanish | GM Pepe Cuenca | Lu Miaoyi | Faustino Oro | Tata Steel Challengers 2026 | [Watch Video](https://www.youtube.com/watch?v=qrRF_YGCHSw) |
+| Four Knights Game - Spanish Variation | C48 | Spanish | Lu Miaoyi | Faustino Oro | Tata Steel Challengers 2026 | [Watch Video](https://www.youtube.com/watch?v=qrRF_YGCHSw) |
 
 ---
 
