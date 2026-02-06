@@ -7,6 +7,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Four Knights Game - Spanish Variation | C48 | Spanish | Lu Miaoyi | Faustino Oro | Tata Steel Challengers 2026 | [Watch Video](https://www.youtube.com/watch?v=qrRF_YGCHSw) |
 | Ruy Lopez - Berlin Defense | C67 | English | Magnus Carlsen | Wesley So | FIDE World Blitz 2025 | [Watch Video](https://www.youtube.com/watch?v=QiHRzcZW41g) |
+| Stafford Gambit | C42 | English | Sergey Erenburg | Eric Rosen | Online Analysis | [Watch Video](https://www.youtube.com/watch?v=qJdrMhfk5XA) |
 
 ---
 
