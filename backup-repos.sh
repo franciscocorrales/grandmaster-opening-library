@@ -80,8 +80,7 @@ fi
 # Create backup directory if it doesn't exist
 if [ ! -d "$BACKUP_DIR" ]; then
     print_info "Creating backup directory: $BACKUP_DIR"
-    mkdir -p "$BACKUP_DIR"
-    if [ $? -ne 0 ]; then
+    if ! mkdir -p "$BACKUP_DIR"; then
         print_error "Failed to create backup directory"
         exit 1
     fi

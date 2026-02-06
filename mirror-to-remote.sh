@@ -92,7 +92,7 @@ fi
 
 # Check SSH connection (optional but recommended)
 print_info "Checking SSH connection to $MIRROR_HOST..."
-if ssh -T git@$MIRROR_HOST 2>&1 | grep -q "successfully authenticated\|Welcome"; then
+if ssh -T "git@$MIRROR_HOST" 2>&1 | grep -q "successfully authenticated\|Welcome"; then
     print_success "SSH connection verified"
 else
     print_warning "Could not verify SSH connection. You may need to set up SSH keys."
@@ -141,16 +141,16 @@ while IFS= read -r git_dir; do
         print_info "Remote '$REMOTE_NAME' already exists"
         
         # Check if URL matches
-        current_url=$(git config --get remote.$REMOTE_NAME.url)
+        current_url=$(git config --get "remote.$REMOTE_NAME.url")
         if [ "$current_url" != "$mirror_url" ]; then
             print_warning "Remote URL differs. Updating..."
-            git remote set-url $REMOTE_NAME "$mirror_url"
+            git remote set-url "$REMOTE_NAME" "$mirror_url"
             print_success "Remote URL updated"
         fi
     else
         # Add mirror remote
         print_info "Adding mirror remote..."
-        if git remote add $REMOTE_NAME "$mirror_url"; then
+        if git remote add "$REMOTE_NAME" "$mirror_url"; then
             print_success "Mirror remote added"
         else
             print_error "Failed to add mirror remote"
@@ -163,13 +163,16 @@ while IFS= read -r git_dir; do
     # Push to mirror
     print_info "Pushing to mirror..."
     
+    # Create secure temporary file for output
+    temp_output=$(mktemp)
+    
     # Try to push with --mirror first
-    if git push $REMOTE_NAME --mirror 2>&1 | tee /tmp/mirror_output.txt; then
+    if git push "$REMOTE_NAME" --mirror 2>&1 | tee "$temp_output"; then
         print_success "Repository mirrored successfully"
         SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
     else
         # Check if the error is about non-existent repository
-        if grep -q "does not appear to be a git repository\|Could not read from remote repository\|Repository not found" /tmp/mirror_output.txt; then
+        if grep -q "does not appear to be a git repository\|Could not read from remote repository\|Repository not found" "$temp_output"; then
             print_warning "Remote repository does not exist yet"
             print_warning "Please create '$repo_name' on $MIRROR_HOST first"
             print_warning "Visit: https://$MIRROR_HOST/$MIRROR_USER/$repo_name"
@@ -181,7 +184,7 @@ while IFS= read -r git_dir; do
     fi
     
     # Clean up temp file
-    rm -f /tmp/mirror_output.txt
+    rm -f "$temp_output"
     
     echo ""
 done < <(find "$PROJECTS_DIR" -type d -name ".git" 2>/dev/null)
