@@ -13,3 +13,9 @@
 
 ### Project Goal
 This repository serves as a professional registry for chess students to find high-level opening explanations. Entries are restricted to videos produced or hosted by Grandmasters to ensure the highest quality of theory and analysis.
+
+---
+
+### Additional Resources
+
+📚 **[Repository Backup Guide](BACKUP_GUIDE.md)** - Comprehensive guide for backing up your GitHub repositories, including scripts for local mirrors, cloud sync, and multi-host mirroring.
